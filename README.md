@@ -1,3 +1,7 @@
+# technicallover.infras
+
+welcome to TechnicalLover infrastructure
+
 # Linux Server
 
 ## Create User Account
@@ -65,7 +69,52 @@ Publish symbol package with:
 $   dotnet nuget push -s http://yourhost:5555/v3/index.json -k NUGET-SERVER-API-KEY symbol.package.1.0.0.snupkg
 ```
 
+# Nginx
+
+[link](https://hub.docker.com/_/nginx)
+
+1. Pull Ngigx's docker image
+
+```
+$   docker pull nginx
+```
+
+2. Run image
+
+```
+$   docker run --name my-nginx -v /mywebcontent:/usr/share/nginx/html:ro -d nginx
+```
+
 # EventStore
 
 # SqlServer
-# technicallover.infras
+
+[link](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
+
+## Run SqlServer
+
+1. Pull SqlServer's docker image
+
+```
+$   docker pull mcr.microsoft.com/mssql/server
+```
+
+2. Run image
+
+```
+$   docker run --name 'sqlserver' -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssword1' -p 1433:1433 -d mcr.microsoft.com/mssql/server:latest
+```
+
+## Connect and execute sql script
+
+1. Connect to the SQL Server
+
+```
+$   docker exec -it sqlserver 'bash'
+```
+
+2. Use the `sqlcmd` tool inside of the container
+
+```
+$   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "P@ssword1"
+```
