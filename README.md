@@ -216,6 +216,20 @@ sudo apt install git-all
         $    docker run --name mynginx -v /home/ldt/nginx/www:/usr/share/nginx/html:ro -v /home/ldt/nginx/conf:/etc/nginx/conf:ro -p 80:80 -d nginx
         ```
 
+4. Start a helper container named `mynginx_files` that has a shell, providing access the content and configuration directories of the `mynginx` container we just created:
+
+    ```
+    $   docker run -i -t --volumes-from mynginx --name mynginx_files debian /bin/bash
+    ```
+
+    To exit the shell but leave the container running, press `Ctrl+p` followed by `Ctrol+q`.
+
+    To regain shell access to a running container, run this command:
+
+    ```
+    $   docker attach mynginx_files
+    ```
+
 ## EventStore
 
 ## SqlServer
@@ -256,13 +270,11 @@ sudo apt install git-all
 
 -   [IntoDNS (check dns record)](https://intodns.com/)
 
--   [Nginx Docker image](https://hub.docker.com/_/nginx)
-
--   [Deploying Nginx on Docker - Managing content and configuration file](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/#managing-content-and-configuration-files)
-
 -   [Docker for Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
--   [Quick start: install and connection SQLServer container](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
+*   [Nginx Docker image](https://hub.docker.com/_/nginx) - [Deploying Nginx on Docker](https://www.digitalocean.com/community/tutorials/how-to-run-nginx-in-a-docker-container-on-ubuntu-14-04) - [Managing content and configuration file](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/#managing-content-and-configuration-files)
+
+*   [Quick start: install and connection SQLServer container](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
 
 ## Question
 
