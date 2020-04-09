@@ -1,0 +1,133 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "southeastasia"
+        },
+        "networkInterfaceName": {
+            "value": "sf-dev-learninghub-1-nwi"
+        },
+        "networkSecurityGroupName": {
+            "value": "sf-dev-learninghub-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "Port_SF",
+                    "properties": {
+                        "priority": 1010,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRanges": [
+                            "3389",
+                            "19000-19003",
+                            "19080-19081",
+                            "8080"
+                        ]
+                    }
+                },
+                {
+                    "name": "Port_vnet",
+                    "properties": {
+                        "priority": 1020,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "VirtualNetwork",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRanges": [
+                            "135",
+                            "137-139",
+                            "445",
+                            "20001-20031",
+                            "20606-20861"
+                        ]
+                    }
+                },
+                {
+                    "name": "default-allow-ssh",
+                    "properties": {
+                        "priority": 1000,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkName": {
+            "value": "sf-dev-learninghub-vnet"
+        },
+        "addressPrefixes": {
+            "value": ["10.0.0.0/24"]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "default",
+                    "properties": {
+                        "addressPrefix": "10.0.0.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "sf-dev-learninghub-1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "sf-dev-learninghub-1-vm"
+        },
+        "virtualMachineRG": {
+            "value": "rg-dev"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_A1_v2"
+        },
+        "adminUsername": {
+            "value": "ldt"
+        },
+        "adminPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDoEDpk/HRb70aB+74ovn8TLt4azMeVS/B1VEkOmvDmSorX1pC6o0MWOgUezjH83azyFg1TuSv/yz5ilZqLkZt0AQbPs0i8i1NeO5pDmgGg3rtFw/Hm0uAhfwlzC8c+4q4MBT4qgqyDmRBBTN7px2Jnq5qhcOCbkMsxci4djP5FITzQGEsbzweiVifYVUeNAQNEdaFeN0nQZSTC/AFTFArlffRUhPkwj+L/tpXhZRKs1n48eDcBfrmTDE3R2IOodq2zx6coo8aF9fAXvekhGQgT0487MVL5nd7AxTBPuGm5hT6+luSjeCvQp1PPAklbTY+Giir57EpqWorBiIaYwSgx674mO1oQiz1mW12sCWZnXLbBSx5J306Rq8nShpROkDvz2yJ0Mrzpr1fDGl+DxIk4W6DzkjNtmf5ccd/QxUPtvdR9OuVEuNv3jvgFe6CZwkIgb3sr/Wtu30MRIYr4jKGvHh5tUi5dRNXy4BCx1SeVC6SQawYSP3+hX/t4VITqQ1Evo461TcWy0PqueuTcpVulpRB0Oi0e3EQLA/svyamPvGqgyj0Wu8RsBsU0eUYnA4KByddVe66fsBFIvxo4h25p4e6DjCJ0VcqiQjEp2Vk3JhZDsq+aOGuECxZRl774lSBvcOkQwV0ENb1Lv9FPl1Uq3bNclrRV2dzCCmfy2g6Vuw== ldt@DESKTOP-9U0HP0I"
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "sfstoragelearninghub"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/sfstoragelearninghub"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountKind": {
+            "value": "Storage"
+        }
+    }
+}
