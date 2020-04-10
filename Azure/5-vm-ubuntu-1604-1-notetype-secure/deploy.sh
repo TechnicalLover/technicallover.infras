@@ -36,24 +36,17 @@ declare parameterFile="AzureDeploy.Parameters.json"
 declare devResourceGroup="devRG"
 declare templateName="initSfClusterLinux"
 
+echo "Create Resource Group..."
 # create resource group
-# az.cmd group create \
-#   --name $devResourceGroup \
-#   --location $location
+az.cmd group create \
+  --name $devResourceGroup \
+  --location $location
 
 declare clusterName="sfDevLearningHub"
 declare adminUserName="ldt"
 declare adminPassword="Trung1997"
 
-    "certificateThumbprint": {
-      "value": "GEN-SF-CERT-THUMBPRINT"
-    },
-    "sourceVaultValue": {
-      "value": "GEN-KEYVAULT-RESOURCE-ID"
-    },
-    "certificateUrlValue": {
-      "value": "GEN-SF-CERT-URL"
-    },
+echo "Deploy..."
 # deploy
 az.cmd deployment group create \
     --name $templateName \
