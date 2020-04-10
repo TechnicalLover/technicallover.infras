@@ -4,7 +4,7 @@ This template allows you to deploy
 
 -   a secure 5 Node
 -   1 Node Type Service Fabric Cluster
--   Ubuntu 18.04 LTS on a `Standard_A1_v2` (change to `Standard_D2_v2` if you want) Size Virtual Machine Scale set with Azure Diagnostics turned on.
+-   Ubuntu 18.04 LTS on a `Standard_D2_v2` (change to `Standard_A1_v2` if you want) Size Virtual Machine Scale set with Azure Diagnostics turned on.
 
 ## Creating a custom ARM template
 
