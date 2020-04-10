@@ -21,7 +21,7 @@
       "value": "UbuntuServer"
     },
     "vmImageSku": {
-      "value": "18.04-LTS"
+      "value": "16.04-LTS"
     },
     "vmImageVersion": {
       "value": "latest"
@@ -60,18 +60,6 @@
       "value": 5
     },
     "vmNodeType0Size": {
-      "value": "Standard_D2_v2"
-    },
-    "nt1InstanceCount": {
-      "value": 1
-    },
-    "vmNodeType1Size": {
-      "value": "Standard_D2_v2"
-    },
-    "nt2InstanceCount": {
-      "value": 1
-    },
-    "vmNodeType2Size": {
       "value": "Standard_D2_v2"
     }
   }
