@@ -5,7 +5,6 @@ parameterFile2="parameters.vm2.json"
 parameterFile3="parameters.vm3.json"
 
 templateName="initUbuntuVm"
-
 resourceGroup="devResourceGroup"
 location="SoutheastAsia"
 
